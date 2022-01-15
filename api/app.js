@@ -13,8 +13,7 @@ require("dotenv").config()
 const PORT = process.env.PORT || '80';
 
 
-// api things 
-
+// cors Options
 
 var corsOptions = {
     origin: '*',
@@ -28,8 +27,8 @@ const name = require("../package.json").name,
     url = require("../package.json").repository.url;
 
 // ROUTES
-app.get("/", cors(corsOptions), (req, res) => {
-    const mainpage = ({"API": `${name}`, "\description": `${description}`, "API Version is": `${version}`, "Github Repository": `${url}` });
+app.get("/api", cors(corsOptions), (req, res) => {
+    const mainpage = (`API for ${name} (${url})`);
     return res.send(mainpage)
 });
 
@@ -39,7 +38,26 @@ app.get("/api/v1", cors(corsOptions), (req, res) => {
     return res.send(v1page) 
 });
 
+/* 
+// Not working currently
+*/ 
+app.get("/api/check/:URL", cors(corsOptions), (req, res) => {
+    fetch(req.params.URL).then(URL);
+    const response = fetch(URL);
 
+    try {
+        fetch(response);
+    } catch (error) {
+        console.error(error);
+    
+        const errorBody = error.response.text();
+        const check = ({ "status": error.response.text(code)} );
+        return res.send(check) 
+    }
+});
+
+
+// Error Handling
 
 app.use(function (req, res, next) {
     res.status(404).send("Sorry, can't find that!")
@@ -49,15 +67,12 @@ app.use(function (req, res, next) {
     res.status(201).send("Missing parameters!")
 });
 
-
+/*
+// because it's coming soon
 app.use(function (req, res, next) {
     res.status(403).send("Missing access")
 });
+*/ 
 
-// API START
-client.on("ready", () => {
-    console.log(`The API is now online! `)
-});
-
-app.listen(PORT, console.log(`the api is listing to`, PORT));
+app.listen(PORT, console.log(`the antiscam api is listing to`, PORT));
 
