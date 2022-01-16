@@ -1,4 +1,4 @@
-name: Greetings
+name: Welcomer
 
 on: [pull_request, issues]
 
