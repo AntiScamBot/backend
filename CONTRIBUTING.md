@@ -1,9 +1,8 @@
 # Contributing Guidelines 
 
 ## Wanted Changes 
-- Adding new malicious URLs
-- fix typos, errors etc
+- Adding missing error codes etc
+- fix typos, bugs etc
 
 ## Unwanted Changes
 - Rewrite of the instruction. 
-- Adding Duplicates 
