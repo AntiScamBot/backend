@@ -2,7 +2,7 @@
     "name": "antiscam-bot-api",
     "version": "1.0.0",
     "description": "API for the public website",
-    "main": "./api/app.js",
+    "main": "./api/app.py",
     "scripts": {
         "start": "nodemon"
     },
