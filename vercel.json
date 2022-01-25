@@ -1,15 +1,10 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "./app.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ]
+	"redirects": [{
+		"source": "/",
+		"destination": "https://github.com/AntiScamBot/backend"
+	}],
+	"rewrites": [{
+		"source": "/api/",
+		"destination": "/app"
+	}]
 }
