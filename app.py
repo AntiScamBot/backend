@@ -1,8 +1,5 @@
 from flask import Flask
 import requests
-from bs4 import BeautifulSoup
-from typing import Union
-
 
 app = Flask(__name__)
 
