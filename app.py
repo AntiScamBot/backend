@@ -15,9 +15,14 @@ def check(domain):
     r = requests.get(url=f'https://{domain}')
     status_code = r.status_code 
     if status_code == 200:
-        return status_code
-    elif status_code != 200:
-        return status_code
+        return { "code": f'{status_code}',  "message": "Online" }
+    elif status_code == 404:
+        return { "code": f'{status_code}', "message": "Not found" }
+    elif status_code == 502:
+        return { "code": f'{status_code}', "message": "Internal Server Error" }
+    else:
+        return { "code": f'{status_code}', "message": "Not manual listed status code." }
+
     
 if __name__ == '__main__':
     app.run(debug=True)
