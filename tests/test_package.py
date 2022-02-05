@@ -1,5 +1,5 @@
 import pytest
-from ..api import app
+from api import app
 
 # Dummy datas
 DUMMY_DOMAIN = "example.com"
