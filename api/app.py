@@ -5,16 +5,15 @@ import requests
 app = Flask(__name__)
 
 @app.route("/api/")
-def hello_world():
+def api():
     return "<p>API for the AntiScam Bot.</p>"
 
 
 @app.route('/api/check/<domain>')
 def check(domain):
-    r = requests.get(url=f'https://{domain}')
-    status_code = r.status_code 
-    if status_code:
-        return jsonify(code={status_code})
+    r = requests.get(url=f'https://{domain}').status_code
+    if r:
+        return jsonify(code=r)
 
     
 if __name__ == '__main__':
