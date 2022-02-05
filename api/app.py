@@ -1,6 +1,9 @@
 from flask import Flask, jsonify
 import requests
 
+"""__all__ = (
+    'check',
+)"""
 
 app = Flask(__name__)
 
@@ -9,7 +12,7 @@ def api():
     return "<p>API for the AntiScam Bot.</p>"
 
 
-@app.route('/api/check/<domain>')
+@app.route('/api/check/<domain>', methods=["GET"])
 def check(domain):
     r = requests.get(url=f'https://{domain}').status_code
     if r:
