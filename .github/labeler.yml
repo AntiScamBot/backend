@@ -1,0 +1,19 @@
+# Add 'root' label to any root file changes
+root:
+- '*'
+
+# .github changes
+.github:
+- .github/*.yml
+- .github/*.md
+
+# Workflow Changes
+.github/workflows:
+- .github/workflows/*
+
+# Issue Templates Changes
+
+.github/ISSUE_TEMPLATE:
+- .github/ISSUE_TEMPLATE/*.yml
+
+
