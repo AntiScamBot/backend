@@ -3,17 +3,17 @@ root:
 - '*'
 
 # .github changes
-@.github:
+.github:
 - .github/*.yml
 - .github/*.md
 
 # Workflow Changes
-@.github/workflows:
+.github/workflows:
 - .github/workflows/*
 
 # Issue Templates Changes
 
-@.github/ISSUE_TEMPLATE:
+.github/ISSUE_TEMPLATE:
 - .github/ISSUE_TEMPLATE/*.yml
 
 
