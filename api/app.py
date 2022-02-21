@@ -1,9 +1,6 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, logging
 import urllib
 
-"""__all__ = (
-    'check',
-)"""
 
 app = Flask(__name__)
 
@@ -14,17 +11,14 @@ def api():
 
 @app.route('/api/check/<domain>', methods=["GET"])
 def check(domain):
+    app.logger.info('Fetching status code...')
     response = urllib.request.urlopen(f'https://{domain}')
     status_code = response.getcode()
     if status_code:
+        app.logger.info('Succesfully fetched...')
         return jsonify(code=status_code)
-    """
-    r = requests.get(url=f'https://{domain}').status_code
-    if r:
-        return jsonify(code=r)
-"""
    
-@app.route('/api/phishing/<domain>'):
+@app.route('/api/phishing/<domain>')
 def phishing(domain):
     return "<p>In process!</p>"
 
