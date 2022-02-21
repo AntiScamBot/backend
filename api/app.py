@@ -23,6 +23,11 @@ def check(domain):
     if r:
         return jsonify(code=r)
 """
-    
+   
+@app.route('/api/phishing/<domain>'):
+def phishing(domain):
+    return "<p>In process!</p>"
+
+
 if __name__ == '__main__':
     app.run(debug=False)
