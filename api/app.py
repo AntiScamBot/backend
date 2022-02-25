@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, logging
 import urllib
-
+import logging
 
 app = Flask(__name__)
+logger = logging.getLogger()
+
 
 @app.route("/api/")
 def api():
@@ -21,6 +23,7 @@ def check(domain):
 @app.route('/api/phishing/<domain>')
 def phishing(domain):
     return "<p>In process!</p>"
+    app.logger.info('This route is already in development.')
 
 
 if __name__ == '__main__':
